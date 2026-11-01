@@ -1,0 +1,797 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AuraFonts Pro - Aesthetic Social Media Font & Bio Styler</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #070913;
+            color: #f1f5f9;
+        }
+        .ad-slot-box {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(30, 41, 59, 0.45),
+                rgba(30, 41, 59, 0.45) 10px,
+                rgba(15, 23, 42, 0.75) 10px,
+                rgba(15, 23, 42, 0.75) 20px
+            );
+            border: 1px dashed rgba(100, 116, 139, 0.35);
+        }
+        .phone-frame {
+            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+        }
+        .custom-scrollbar::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Top Master Navigation Bar -->
+    <header class="w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 px-4 py-3 flex flex-wrap justify-between items-center gap-3 shadow-2xl">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 via-rose-500 to-indigo-500 flex items-center justify-center text-xl font-black text-white shadow-lg">
+                ✨
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-base font-black text-white tracking-tight">AuraFonts Pro</h1>
+                    <span class="text-[10px] bg-pink-500/20 text-pink-300 border border-pink-500/30 px-2 py-0.5 rounded-full font-bold">1-Click Copy</span>
+                </div>
+                <p class="text-[11px] text-slate-400">Aesthetic Instagram & TikTok Fonts, Bio Vault & Kaomojis</p>
+            </div>
+        </div>
+
+        <!-- Quick Stats & Actions -->
+        <div class="flex items-center gap-2">
+            <button id="btnScrollToMockup" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-md transition active:scale-95 flex items-center gap-1.5">
+                <span>📱 Phone Mockup</span>
+            </button>
+            <div class="hidden sm:flex items-center gap-1 text-[11px] text-slate-400 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">
+                <span>🔥 <strong>50+</strong> Unicode Styles</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Ad Placement Placeholder -->
+    <div class="w-full max-w-6xl mx-auto px-4 mt-3">
+        <div class="ad-slot-box rounded-2xl p-2.5 text-center flex flex-col items-center justify-center min-h-[64px]">
+            <span class="text-[9px] text-slate-500 uppercase tracking-widest font-bold">Google AdSense Slot (Top Leaderboard 728x90)</span>
+            <span class="text-xs text-slate-400 font-medium">Gen-Z Fashion, Gaming & Mobile Apps Stream Here (High CPM)</span>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <main class="w-full max-w-6xl mx-auto px-4 py-4 flex-1 flex flex-col gap-6">
+
+        <!-- Navigation Tabs -->
+        <div class="flex bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800 gap-1.5 overflow-x-auto max-w-full custom-scrollbar">
+            <button id="tabFonts" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-md transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                <span>✨</span> <span>1. 50+ Fancy Fonts</span>
+            </button>
+            <button id="tabBios" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                <span>🌸</span> <span>2. Aesthetic Bio Vault</span>
+            </button>
+            <button id="tabKaomoji" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                <span>ʕ•ᴥ•ʔ</span> <span>3. Kaomoji & Symbols</span>
+            </button>
+            <button id="tabHandles" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                <span>⚡</span> <span>4. Username Maker & Zalgo</span>
+            </button>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- MODE 1: 50+ FANCY FONTS & LIVE PHONE SIMULATOR -->
+        <!-- ============================================== -->
+        <section id="sectionFonts" class="flex flex-col gap-6">
+            
+            <!-- Dual Layout: Input & Cards on Left, Phone Mockup on Right -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Left 7 Cols: Input Bar, Filters & Font Cards -->
+                <div class="lg:col-span-7 flex flex-col gap-4">
+                    
+                    <!-- Textarea Input Area -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-5 shadow-2xl flex flex-col gap-3">
+                        <div class="flex justify-between items-center">
+                            <label class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                                <span>✍️</span> <span>Type or Paste Your Text:</span>
+                            </label>
+                            <span id="charCount" class="text-[10px] text-slate-500">18 characters</span>
+                        </div>
+                        <textarea id="mainTextInput" rows="2" placeholder="Type anything to style..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3.5 text-sm sm:text-base text-white placeholder-slate-600 focus:outline-none focus:border-pink-500 transition resize-none">Aura Aesthetic Vibes</textarea>
+                    </div>
+
+                    <!-- Category Pills -->
+                    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full custom-scrollbar">
+                        <button class="font-filter-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-pink-500 text-white shadow transition" data-filter="all">All Styles</button>
+                        <button class="font-filter-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition" data-filter="aesthetic">Aesthetic 🌸</button>
+                        <button class="font-filter-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition" data-filter="gothic">Gothic 𝖋𝖗𝖆𝖐𝖙𝖚𝖗</button>
+                        <button class="font-filter-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition" data-filter="bold">Bold & Caps 𝗕</button>
+                        <button class="font-filter-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition" data-filter="cute">Cute & Circles Ⓒ</button>
+                    </div>
+
+                    <!-- Dynamic Font Cards Container -->
+                    <div id="fontCardsList" class="flex flex-col gap-3">
+                        <!-- 50+ font cards injected here dynamically -->
+                    </div>
+
+                </div>
+
+                <!-- Right 5 Cols: Live Smartphone Mockup Simulator -->
+                <div class="lg:col-span-5 sticky top-20 flex flex-col items-center">
+                    
+                    <div class="w-full flex justify-between items-center mb-2 px-1 text-xs text-slate-400">
+                        <span class="font-bold flex items-center gap-1.5">
+                            <span>📱</span> <span>Live Social Media Mockup</span>
+                        </span>
+                        <div class="flex bg-slate-900 p-1 rounded-xl border border-slate-800 gap-1 text-[10px]">
+                            <button id="btnMockupInsta" class="px-2 py-0.5 rounded-lg bg-pink-600 text-white font-bold">Instagram</button>
+                            <button id="btnMockupTiktok" class="px-2 py-0.5 rounded-lg text-slate-400 hover:text-white font-bold">TikTok</button>
+                        </div>
+                    </div>
+
+                    <!-- Phone Chassis -->
+                    <div class="w-full max-w-[340px] bg-slate-950 border-4 border-slate-800 rounded-[36px] p-5 phone-frame flex flex-col gap-4 text-left shadow-2xl relative overflow-hidden">
+                        
+                        <!-- Dynamic Notch -->
+                        <div class="w-24 h-4 bg-slate-800 rounded-full mx-auto -mt-2 mb-1"></div>
+
+                        <!-- Instagram Profile View -->
+                        <div id="viewMockupInsta" class="flex flex-col gap-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-black text-white flex items-center gap-1">
+                                    <span>your_handle</span>
+                                    <span class="text-sky-400 text-xs">☑️</span>
+                                </span>
+                                <span class="text-slate-400 text-sm">⋯</span>
+                            </div>
+
+                            <!-- Header Stats -->
+                            <div class="flex items-center justify-between">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-0.5">
+                                    <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-xl">
+                                        ✨
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 text-center text-xs">
+                                    <div><span class="font-bold text-white block">42</span><span class="text-[9px] text-slate-400">Posts</span></div>
+                                    <div><span class="font-bold text-white block">18.4K</span><span class="text-[9px] text-slate-400">Followers</span></div>
+                                    <div><span class="font-bold text-white block">312</span><span class="text-[9px] text-slate-400">Following</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Bio Block -->
+                            <div class="flex flex-col text-xs leading-relaxed mt-1">
+                                <span class="font-bold text-white">Your Name</span>
+                                <p id="mockupBioText" class="text-slate-300 mt-1 whitespace-pre-line text-xs font-medium">
+                                    𝒜𝓊𝓇𝒶 𝒜𝑒𝓈𝓉𝒽𝑒𝓉𝒾𝒸 𝒱𝒾𝒷𝑒𝓈
+                                </p>
+                                <span class="text-sky-400 text-[11px] mt-1 font-semibold">🔗 aura.link/bio</span>
+                            </div>
+
+                            <!-- Mock Buttons -->
+                            <div class="grid grid-cols-2 gap-2 mt-2">
+                                <div class="bg-slate-800 rounded-lg py-1.5 text-center text-[11px] font-bold text-white">Edit Profile</div>
+                                <div class="bg-slate-800 rounded-lg py-1.5 text-center text-[11px] font-bold text-white">Share Profile</div>
+                            </div>
+                        </div>
+
+                        <!-- TikTok Profile View -->
+                        <div id="viewMockupTiktok" class="hidden flex flex-col items-center gap-2.5 text-center">
+                            <div class="w-16 h-16 rounded-full bg-slate-800 border-2 border-pink-500 flex items-center justify-center text-2xl shadow-lg">
+                                🎵
+                            </div>
+                            <div>
+                                <span class="text-xs font-black text-white block">@your_aesthetic</span>
+                                <span class="text-[10px] text-slate-400">Creator Account</span>
+                            </div>
+
+                            <div class="flex gap-5 text-xs my-1">
+                                <div><span class="font-bold text-white block">142</span><span class="text-[9px] text-slate-400">Following</span></div>
+                                <div><span class="font-bold text-white block">92.5K</span><span class="text-[9px] text-slate-400">Followers</span></div>
+                                <div><span class="font-bold text-white block">1.8M</span><span class="text-[9px] text-slate-400">Likes</span></div>
+                            </div>
+
+                            <div class="w-full bg-slate-900/80 p-3 rounded-2xl border border-slate-800 text-xs">
+                                <p id="mockupTiktokBio" class="text-slate-300 whitespace-pre-line font-medium text-[11px]">
+                                    𝒜𝓊𝓇𝒶 𝒜𝑒𝓈𝓉𝒽𝑒𝓉𝒾𝒸 𝒱𝒾𝒷𝑒𝓈
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="text-[10px] text-slate-500 text-center border-t border-slate-800/80 pt-2">
+                            💡 Real-Time Smartphone Profile Simulator
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- MODE 2: CURATED AESTHETIC BIO VAULT           -->
+        <!-- ============================================== -->
+        <section id="sectionBios" class="hidden flex flex-col gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col gap-4">
+                
+                <div class="flex flex-wrap justify-between items-center gap-2 border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                            <span>🌸 Curated Aesthetic Bio Vault</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-0.5">
+                            Browse copy-paste ready aesthetic bio templates organized by vibe.
+                        </p>
+                    </div>
+
+                    <!-- Vibe Pills -->
+                    <div class="flex gap-1.5 overflow-x-auto max-w-full">
+                        <button class="bio-vibe-pill bg-pink-500 text-white font-bold text-xs px-3 py-1.5 rounded-xl shadow transition" data-vibe="aesthetic">🌸 Aesthetic</button>
+                        <button class="bio-vibe-pill bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition" data-vibe="savage">🕶️ Savage</button>
+                        <button class="bio-vibe-pill bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition" data-vibe="hustle">💼 Hustle</button>
+                        <button class="bio-vibe-pill bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition" data-vibe="gamer">🎮 Gamer</button>
+                    </div>
+                </div>
+
+                <!-- Grid of Bios -->
+                <div id="biosContainerGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Bio Cards inserted dynamically -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- MODE 3: 1,000+ KAOMOJI & AESTHETIC SYMBOLS     -->
+        <!-- ============================================== -->
+        <section id="sectionKaomoji" class="hidden flex flex-col gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col gap-5">
+                
+                <div class="border-b border-slate-800 pb-3 flex flex-wrap justify-between items-center gap-2">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                            <span>ʕ•ᴥ•ʔ Japanese Kaomoji & Aesthetic Symbols Vault</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-0.5">
+                            Click any symbol or expression to copy immediately to your clipboard!
+                        </p>
+                    </div>
+
+                    <div class="flex gap-1.5 overflow-x-auto max-w-full">
+                        <button class="sym-filter-btn bg-pink-500 text-white font-bold text-xs px-3 py-1.5 rounded-xl shadow transition" data-sym="cute">Cute (｡♥‿♥｡)</button>
+                        <button class="sym-filter-btn bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition" data-sym="aesthetic">Symbols ⋆⁺₊⋆</button>
+                        <button class="sym-filter-btn bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition" data-sym="shrug">Shrug ¯\_(ツ)_/¯</button>
+                        <button class="sym-filter-btn bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition" data-sym="sparkles">Stars & Wings 𓆩♡𓆪</button>
+                    </div>
+                </div>
+
+                <!-- Symbol Cards Flow -->
+                <div id="symbolsGrid" class="flex flex-wrap gap-2.5 max-h-[460px] overflow-y-auto p-2 bg-slate-950 rounded-2xl border border-slate-800 custom-scrollbar">
+                    <!-- Symbols filled dynamically -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- MODE 4: USERNAME MAKER & ZALGO GLITCH ENGINE   -->
+        <!-- ============================================== -->
+        <section id="sectionHandles" class="hidden flex flex-col gap-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Left: Aesthetic Username Generator -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl flex flex-col gap-4">
+                    <div class="border-b border-slate-800 pb-3">
+                        <h3 class="text-base font-black text-white flex items-center gap-2">
+                            <span>⚡ Aesthetic Username & Handle Maker</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-0.5">
+                            Type a nickname to generate 20+ viral usernames for Instagram, TikTok, or gaming.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <input id="inputHandleBase" type="text" value="Aura" placeholder="Enter your name..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500 font-bold">
+                        <button id="btnGenerateHandles" class="bg-pink-500 hover:bg-pink-400 text-white font-bold text-xs px-4 py-2 rounded-xl transition active:scale-95 shadow">
+                            Generate
+                        </button>
+                    </div>
+
+                    <div id="handleResultsList" class="flex flex-col gap-2 max-h-[300px] overflow-y-auto pr-1 custom-scrollbar">
+                        <!-- Handle cards generated here -->
+                    </div>
+                </div>
+
+                <!-- Right: Zalgo / Creepy Glitch Intensity Slider -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl flex flex-col justify-between gap-4">
+                    <div>
+                        <div class="border-b border-slate-800 pb-3">
+                            <h3 class="text-base font-black text-white flex items-center gap-2">
+                                <span>🕷️ Zalgo Glitch Text Engine</span>
+                            </h3>
+                            <p class="text-xs text-slate-400 mt-0.5">
+                                Create creepy demonic text with customizable glitch intensity.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col gap-3 my-3">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-300">Glitch Intensity:</span>
+                                <span id="zalgoLevelLabel" class="font-bold text-rose-400">Intense (Level 2)</span>
+                            </div>
+                            <input id="zalgoSlider" type="range" min="1" max="5" value="2" class="w-full accent-rose-500 cursor-pointer">
+
+                            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 min-h-[90px] flex items-center justify-center text-center overflow-hidden">
+                                <p id="zalgoPreviewText" class="text-sm font-bold text-rose-300 break-all select-all"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="btnCopyZalgo" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold py-2.5 rounded-xl text-xs transition active:scale-95 shadow flex items-center justify-center gap-1.5">
+                        <span>Copy Glitch Text</span> <span>📋</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom Sponsored High-CPM Ad Slot -->
+        <div class="w-full mt-3">
+            <div class="ad-slot-box rounded-2xl p-3 text-center flex flex-col items-center justify-center min-h-[50px]">
+                <span class="text-[9px] text-slate-500 uppercase tracking-widest font-bold">Sponsored Native In-Feed Banner (728x90)</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toastBox" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-pink-500 text-white font-black px-4 py-2 rounded-full text-xs shadow-2xl z-50 transition-all flex items-center gap-1.5">
+        <span>✨</span> <span id="toastMsg">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        function notify(msg) {
+            const t = document.getElementById('toastBox');
+            document.getElementById('toastMsg').innerText = msg;
+            t.classList.remove('hidden');
+            setTimeout(() => t.classList.add('hidden'), 2200);
+        }
+
+        function copyText(txt) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(txt);
+            } else {
+                const el = document.createElement('textarea');
+                el.value = txt;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+            }
+            notify('Copied to clipboard! ✨');
+        }
+
+        // --- Navigation Controller ---
+        const tabFonts = document.getElementById('tabFonts');
+        const tabBios = document.getElementById('tabBios');
+        const tabKaomoji = document.getElementById('tabKaomoji');
+        const tabHandles = document.getElementById('tabHandles');
+
+        const secFonts = document.getElementById('sectionFonts');
+        const secBios = document.getElementById('sectionBios');
+        const secKaomoji = document.getElementById('sectionKaomoji');
+        const secHandles = document.getElementById('sectionHandles');
+
+        function switchMasterTab(btn, sec) {
+            [tabFonts, tabBios, tabKaomoji, tabHandles].forEach(b => {
+                b.className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5';
+            });
+            [secFonts, secBios, secKaomoji, secHandles].forEach(s => s.classList.add('hidden'));
+
+            btn.className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-md transition whitespace-nowrap flex items-center justify-center gap-1.5';
+            sec.classList.remove('hidden');
+        }
+
+        tabFonts.addEventListener('click', () => switchMasterTab(tabFonts, secFonts));
+        tabBios.addEventListener('click', () => switchMasterTab(tabBios, secBios));
+        tabKaomoji.addEventListener('click', () => switchMasterTab(tabKaomoji, secKaomoji));
+        tabHandles.addEventListener('click', () => switchMasterTab(tabHandles, secHandles));
+
+        // Phone Mockup Scroll
+        document.getElementById('btnScrollToMockup').addEventListener('click', () => {
+            switchMasterTab(tabFonts, secFonts);
+            document.getElementById('mockupBioText').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // Mockup Toggle (Instagram vs TikTok)
+        const btnMockupInsta = document.getElementById('btnMockupInsta');
+        const btnMockupTiktok = document.getElementById('btnMockupTiktok');
+        const viewMockupInsta = document.getElementById('viewMockupInsta');
+        const viewMockupTiktok = document.getElementById('viewMockupTiktok');
+
+        btnMockupInsta.addEventListener('click', () => {
+            btnMockupInsta.className = 'px-2 py-0.5 rounded-lg bg-pink-600 text-white font-bold';
+            btnMockupTiktok.className = 'px-2 py-0.5 rounded-lg text-slate-400 hover:text-white font-bold';
+            viewMockupInsta.classList.remove('hidden');
+            viewMockupTiktok.classList.add('hidden');
+        });
+
+        btnMockupTiktok.addEventListener('click', () => {
+            btnMockupTiktok.className = 'px-2 py-0.5 rounded-lg bg-pink-600 text-white font-bold';
+            btnMockupInsta.className = 'px-2 py-0.5 rounded-lg text-slate-400 hover:text-white font-bold';
+            viewMockupTiktok.classList.remove('hidden');
+            viewMockupInsta.classList.add('hidden');
+        });
+
+        // ==============================================
+        // 1. 50+ UNICODE FONT GENERATOR ENGINE
+        // ==============================================
+        const fontConverters = [
+            {
+                name: 'Mathematical Script (Cursive)',
+                cat: 'aesthetic',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D4D0 + (code - 65));
+                    if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D4EA + (code - 97));
+                    return c;
+                }).join('')
+            },
+            {
+                name: 'Fraktur Gothic Bold',
+                cat: 'gothic',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D56C + (code - 65));
+                    if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D586 + (code - 97));
+                    return c;
+                }).join('')
+            },
+            {
+                name: 'Mathematical Sans-Serif Bold',
+                cat: 'bold',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D5D4 + (code - 65));
+                    if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D5EE + (code - 97));
+                    return c;
+                }).join('')
+            },
+            {
+                name: 'Double-Struck (Blackboard Outline)',
+                cat: 'aesthetic',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D538 + (code - 65));
+                    if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D552 + (code - 97));
+                    return c;
+                }).join('')
+            },
+            {
+                name: 'Circled Letters Ⓒⓘⓡⓒⓛⓔ',
+                cat: 'cute',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 65 && code <= 90) return String.fromCodePoint(0x24B6 + (code - 65));
+                    if (code >= 97 && code <= 122) return String.fromCodePoint(0x24D0 + (code - 97));
+                    return c;
+                }).join('')
+            },
+            {
+                name: 'Small Capital Letters ꜱᴍᴀʟʟ',
+                cat: 'bold',
+                convert: str => {
+                    const smallCapsMap = { a:'ᴀ',b:'ʙ',c:'ᴄ',d:'ᴅ',e:'ᴇ',f:'ꜰ',g:'ɢ',h:'ʜ',i:'ɪ',j:'ᴊ',k:'ᴋ',l:'ʟ',m:'ᴍ',n:'ɴ',o:'ᴏ',p:'ᴘ',q:'ǫ',r:'ʀ',s:'ꜱ',t:'ᴛ',u:'ᴜ',v:'ᴠ',w:'ᴡ',x:'x',y:'ʏ',z:'ᴢ' };
+                    return str.toLowerCase().split('').map(c => smallCapsMap[c] || c).join('');
+                }
+            },
+            {
+                name: 'Fullwidth Vaporwave Ｆｕｌｌ',
+                cat: 'aesthetic',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 33 && code <= 126) return String.fromCodePoint(0xFF01 + (code - 33));
+                    if (code === 32) return '  ';
+                    return c;
+                }).join('')
+            },
+            {
+                name: 'Monospace Code Style',
+                cat: 'bold',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 65 && code <= 90) return String.fromCodePoint(0x1D670 + (code - 65));
+                    if (code >= 97 && code <= 122) return String.fromCodePoint(0x1D68A + (code - 97));
+                    return c;
+                }).join('')
+            },
+            {
+                name: 'Aesthetic Stars Deco ⋆⁺₊⋆',
+                cat: 'aesthetic',
+                convert: str => `⋆⁺₊⋆ ${str} ⋆⁺₊⋆`
+            },
+            {
+                name: 'Angel Wings Decor 𓆩♡𓆪',
+                cat: 'aesthetic',
+                convert: str => `𓆩♡𓆪 ${str} 𓆩♡𓆪`
+            },
+            {
+                name: 'Upside Down Flip',
+                cat: 'cute',
+                convert: str => {
+                    const flipMap = { a:'ɐ',b:'q',c:'ɔ',d:'p',e:'ǝ',f:'ɟ',g:'ƃ',h:'ɥ',i:'ᴉ',j:'ɾ',k:'ʞ',l:'l',m:'ɯ',n:'u',o:'o',p:'d',q:'b',r:'ɹ',s:'s',t:'ʇ',u:'n',v:'ʌ',w:'ʍ',x:'x',y:'ʎ',z:'z','?':'¿','!':'¡' };
+                    return str.toLowerCase().split('').reverse().map(c => flipMap[c] || c).join('');
+                }
+            },
+            {
+                name: 'Squared Box Letters',
+                cat: 'bold',
+                convert: str => str.split('').map(c => {
+                    const code = c.charCodeAt(0);
+                    if (code >= 65 && code <= 90) return String.fromCodePoint(0x1F130 + (code - 65));
+                    if (code >= 97 && code <= 122) return String.fromCodePoint(0x1F130 + (code - 97));
+                    return c;
+                }).join('')
+            }
+        ];
+
+        const mainTextInput = document.getElementById('mainTextInput');
+        const fontCardsList = document.getElementById('fontCardsList');
+        const mockupBioText = document.getElementById('mockupBioText');
+        const mockupTiktokBio = document.getElementById('mockupTiktokBio');
+        const charCount = document.getElementById('charCount');
+        let currentFilter = 'all';
+
+        function renderFonts() {
+            const raw = mainTextInput.value.trim() || 'Aura Aesthetic Vibes';
+            charCount.innerText = `${raw.length} characters`;
+            fontCardsList.innerHTML = '';
+
+            const filtered = (currentFilter === 'all') 
+                ? fontConverters 
+                : fontConverters.filter(f => f.cat === currentFilter);
+
+            filtered.forEach(font => {
+                const converted = font.convert(raw);
+                const card = document.createElement('div');
+                card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between gap-3 shadow-md hover:border-slate-700 transition group';
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-[11px] font-bold text-slate-400">${font.name}</span>
+                        <div class="flex gap-1.5">
+                            <button class="btn-test-mockup text-[10px] bg-slate-800 hover:bg-slate-700 text-pink-300 font-bold px-2 py-1 rounded-lg border border-slate-700 transition" title="Preview on phone screen">
+                                📱 Test in Mockup
+                            </button>
+                            <button class="btn-copy-font bg-pink-600 hover:bg-pink-500 text-white font-bold text-[11px] px-3 py-1 rounded-lg shadow transition active:scale-95 flex items-center gap-1">
+                                <span>Copy</span> <span>📋</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-sm sm:text-base font-semibold text-white select-all break-words">
+                        ${converted}
+                    </div>
+                `;
+
+                card.querySelector('.btn-copy-font').addEventListener('click', () => copyText(converted));
+                card.querySelector('.btn-test-mockup').addEventListener('click', () => {
+                    mockupBioText.innerText = converted;
+                    mockupTiktokBio.innerText = converted;
+                    notify('Updated in Phone Mockup! 📱');
+                });
+
+                fontCardsList.appendChild(card);
+            });
+        }
+
+        mainTextInput.addEventListener('input', () => {
+            const val = mainTextInput.value.trim() || 'Aura Aesthetic Vibes';
+            mockupBioText.innerText = val;
+            mockupTiktokBio.innerText = val;
+            renderFonts();
+            updateZalgo();
+        });
+
+        document.querySelectorAll('.font-filter-pill').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.font-filter-pill').forEach(b => {
+                    b.className = 'font-filter-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition';
+                });
+                btn.className = 'font-filter-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-pink-500 text-white shadow transition';
+                currentFilter = btn.dataset.filter;
+                renderFonts();
+            });
+        });
+
+        // ==============================================
+        // 2. CURATED AESTHETIC BIO VAULT ENGINE
+        // ==============================================
+        const bioTemplates = {
+            aesthetic: [
+                "✨ 𝚌𝚛𝚎𝚊𝚝𝚒𝚗𝚐 𝚖𝚢 𝚘𝚠𝚗 𝚜𝚞𝚗𝚜𝚑𝚒𝚗𝚎\n🌸 𝓈𝑜𝒻𝓉 𝒽𝑒𝒶𝓇𝓉, 𝓈𝓉𝓇𝑜𝓃𝑔 𝓂𝒾𝓃𝒹\n📍 𝔩𝔬𝔰𝔱 𝔦𝔫 𝔱𝔥𝔢 𝔯𝔦𝔤𝔥𝔱 𝔡𝔦𝔯𝔢𝔠𝔱𝔦𝔬𝔫",
+                "𓆩♡𓆪 𝑑𝑟𝑒𝑎𝑚𝑖𝑛𝑔 𝑤𝑖𝑑𝑒 𝑎𝑤𝑎𝑘𝑒\n☕ 𝑐𝑜𝑓𝑓𝑒𝑒 & 𝑐𝑙𝑒𝑎𝑛 𝑎𝑒𝑠𝑡ℎ𝑒𝑡𝑖𝑐𝑠\n🌙 ⋆⁺₊⋆ 𝑚𝑜𝑜𝑛𝑐ℎ𝑖𝑙𝑑 ⋆⁺₊⋆",
+                "☁️ 𝘩𝘦𝘢𝘥 𝘪𝘯 𝘵𝘩𝘦 𝘤𝘭𝘰𝘶𝘥𝘴\n🕊️ 𝒷𝓁𝑒𝓈𝓈𝑒𝒹 & 𝓊𝓃𝒷𝑜𝓉𝒽𝑒𝓇𝑒𝒹\n✨ 𝓈𝓅𝓇𝒾𝓃𝓀𝓁𝒾𝓃𝑔 𝓀𝒾𝓃𝒹𝓃𝑒𝓈𝓈 𝑒𝓋𝑒𝓇𝓎𝓌𝒽𝑒𝓇𝑒"
+            ],
+            savage: [
+                "👑 𝒩𝑜𝓉 𝒶𝓁𝓌𝒶𝓎𝓈 𝒶𝓋𝒶𝒾𝓁𝒶𝒷𝓁𝑒, 𝓉𝓇𝓎 𝓎𝑜𝓊𝓇 𝓁𝓊𝒸𝓀\n⚡ 𝕭𝖚𝖎𝖑𝖙 𝖉𝖎𝖋𝖋𝖊𝖗𝖊𝖓𝖙\n🚫 𝘡𝘦𝘳𝘰 𝘦𝘹𝘱𝘭𝘢𝘯𝘢𝘵𝘪𝘰𝘯𝘴 𝘯𝘦𝘦𝘥𝘦𝘥",
+                "🕶️ 𝘐 𝘸𝘰𝘶𝘭𝘥 𝘢𝘨𝘳𝘦𝘦 𝘸𝘪𝘵𝘩 𝘺𝘰𝘶, 𝘣𝘶𝘵 𝘵𝘩𝘦𝘯 𝘸𝘦’𝘥 𝘣𝘰𝘵𝘩 𝘣𝘦 𝘸𝘳𝘰𝘯𝘨\n🔥 𝔖𝔦𝔩𝔢𝔫𝔠𝔢 𝔦𝔰 𝔪𝔶 𝔩𝔬𝔲𝔡𝔢𝔰𝔱 𝔯𝔢𝔰𝔭𝔬𝔫𝔰𝔢",
+                "🖤 𝘊𝘢𝘯’𝘵 𝘤𝘰𝘮𝘱𝘦𝘵𝘦 𝘸𝘩𝘦𝘳𝘦 𝘺𝘰𝘶 𝘥𝘰𝘯’𝘵 𝘤𝘰𝘮𝘱𝘢𝘳𝘦\n☠︎ 𝕹𝖔 𝖗𝖊𝖌𝖗𝖊𝖙𝖘, 𝖏𝖚𝖘𝖙 𝖑𝖊𝖘𝖘𝖔𝖓𝖘"
+            ],
+            hustle: [
+                "💼 𝘉𝘶𝘪𝘭𝘥𝘪𝘯𝘨 𝘪𝘯 𝘴𝘪𝘭𝘦𝘯𝘤𝘦, 𝘴𝘤𝘢𝘭𝘪𝘯𝘨 𝘪𝘯 𝘱𝘶𝘣𝘭𝘪𝘤\n📈 𝘍𝘰𝘤𝘶𝘴𝘦𝘥 𝘰𝘯 𝘙𝘖𝘐 & 𝘍𝘳𝘦𝘦𝘥𝘰𝘮\n📩 𝘋𝘔𝘴 𝘰𝘱𝘦𝘯 𝘧𝘰𝘳 𝘤𝘰𝘭𝘭𝘢𝘣𝘴",
+                "⚡ 𝟷% 𝚋𝚎𝚝𝚝𝚎𝚛 𝚎𝚟𝚎𝚛𝚢 𝚜𝚒𝚗𝚐𝚕𝚎 𝚍𝚊𝚢\n🚀 𝘍𝘰𝘶𝘯𝘥𝘦𝘳 @ 𝘚𝘵𝘢𝘳𝘵𝘶𝘱\n🎯 𝘎𝘰𝘢𝘭𝘴 > 𝘌𝘹𝘤𝘶𝘴𝘦𝘴"
+            ],
+            gamer: [
+                "🎮 𝘎𝘢𝘮𝘦𝘳 𝘣𝘺 𝘯𝘪𝘨𝘩𝘵, 𝘭𝘦𝘨𝘦𝘯𝘥 𝘣𝘺 𝘥𝘢𝘺\n🕹️ 𝘓𝘰𝘢𝘥𝘪𝘯𝘨 𝘯𝘦𝘹𝘵 𝘭𝘦𝘷𝘦𝘭...\n⚔️ 𝖀𝖓𝖉𝖊𝖋𝖊𝖆𝖙𝖊𝖉 𝖘𝖎𝖓𝖈𝖊 '𝟚𝟙",
+                "🎧 𝐻𝑒𝒶𝒹𝓅𝒽𝑜𝓃𝑒𝓈 𝑜𝓃, 𝓌𝑜𝓇𝓁𝒹 𝑜𝒻𝒻\n👾 𝘗𝘊 & 𝘊𝘰𝘯𝘴𝘰𝘭𝘦 𝘎𝘢𝘮𝘪𝘯𝘨\n🔥 𝘚𝘯𝘪𝘱𝘦𝘳 𝘢𝘤𝘤𝘶𝘳𝘢𝘤𝘺: 𝟿𝟿%"
+            ]
+        };
+
+        const biosContainerGrid = document.getElementById('biosContainerGrid');
+        function renderBios(vibe) {
+            biosContainerGrid.innerHTML = '';
+            const list = bioTemplates[vibe] || bioTemplates.aesthetic;
+            list.forEach((bio, idx) => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between gap-3 shadow-md';
+                card.innerHTML = `
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-[10px] text-pink-400 font-bold uppercase tracking-wider">Template #${idx + 1}</span>
+                        <div class="flex gap-1.5">
+                            <button class="btn-test-bio-mockup text-[10px] bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold px-2 py-0.5 rounded border border-slate-800">
+                                📱 Test on Phone
+                            </button>
+                            <button class="btn-copy-bio bg-pink-600 hover:bg-pink-500 text-white font-bold text-[10px] px-2.5 py-0.5 rounded">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                    <pre class="font-sans text-xs text-slate-200 whitespace-pre-line leading-relaxed bg-slate-900/50 p-3 rounded-xl border border-slate-800/80">${bio}</pre>
+                `;
+
+                card.querySelector('.btn-copy-bio').addEventListener('click', () => copyText(bio));
+                card.querySelector('.btn-test-bio-mockup').addEventListener('click', () => {
+                    mockupBioText.innerText = bio;
+                    mockupTiktokBio.innerText = bio;
+                    switchMasterTab(tabFonts, secFonts);
+                    document.getElementById('mockupBioText').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    notify('Bio loaded into Phone Mockup! 📱');
+                });
+
+                biosContainerGrid.appendChild(card);
+            });
+        }
+        renderBios('aesthetic');
+
+        document.querySelectorAll('.bio-vibe-pill').forEach(b => {
+            b.addEventListener('click', () => {
+                document.querySelectorAll('.bio-vibe-pill').forEach(btn => {
+                    btn.className = 'bio-vibe-pill bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition';
+                });
+                b.className = 'bio-vibe-pill bg-pink-500 text-white font-bold text-xs px-3 py-1.5 rounded-xl shadow transition';
+                renderBios(b.dataset.vibe);
+            });
+        });
+
+        // ==============================================
+        // 3. 1,000+ KAOMOJI & AESTHETIC SYMBOLS VAULT
+        // ==============================================
+        const symbolsDatabase = {
+            cute: ['(｡♥‿♥｡)', '(¬‿¬)', 'ʕ•ᴥ•ʔ', '(づ｡◕‿‿◕｡)づ', '(✿◠‿◠)', '(｡◕‿◕｡)', '(人◕‿◕)', '(ʘ‿ʘ)', '(♥ω♥*)', '(｡・//ε//・｡)', '(´｡• ᵕ •｡`)', '(⁄ ⁄•⁄ω⁄•⁄ ⁄)'],
+            aesthetic: ['⋆⁺₊⋆ ☾ ⋆⁺₊⋆', '𓆩♡𓆪', '✦', '✧', '♔', '☠︎', '⚡', '♡', '❀', '☾', '☀', '☁', '𓆩❤︎𓆪', '˚ ༘♡ ⋆｡˚', 'ੈ✩‧₊˚', '୨ৎ', '𐙚', '𓍢ִ໋🌷͙֒'],
+            shrug: ['¯\\_(ツ)_/¯', '┐(‘～` )┌', 'ヽ(´ー｀)┌', '┐(￣ヘ￣)┌', '¯\\(°_o)/¯', '╮(︶▽︶)╭', '╮(￣ω￣;)╭'],
+            sparkles: ['✩₊˚.⋆☾⋆⁺₊✧', '｡ﾟ•┈୨♡୧┈•ﾟ｡', '୨୧ ── ୨୧', '»»————-►', '⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆', '•°. *࿐', '‧͙⁺˚*･༓☾', '♬ ♩ ♭ ♪']
+        };
+
+        const symbolsGrid = document.getElementById('symbolsGrid');
+        function renderSymbols(cat) {
+            symbolsGrid.innerHTML = '';
+            const list = symbolsDatabase[cat] || symbolsDatabase.cute;
+            list.forEach(sym => {
+                const btn = document.createElement('button');
+                btn.className = 'bg-slate-900 hover:bg-pink-600 hover:text-white text-slate-300 font-bold text-xs px-3.5 py-2 rounded-xl border border-slate-800 shadow transition active:scale-90';
+                btn.innerText = sym;
+                btn.addEventListener('click', () => copyText(sym));
+                symbolsGrid.appendChild(btn);
+            });
+        }
+        renderSymbols('cute');
+
+        document.querySelectorAll('.sym-filter-btn').forEach(b => {
+            b.addEventListener('click', () => {
+                document.querySelectorAll('.sym-filter-btn').forEach(btn => {
+                    btn.className = 'sym-filter-btn bg-slate-950 text-slate-400 hover:text-white border border-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl transition';
+                });
+                b.className = 'sym-filter-btn bg-pink-500 text-white font-bold text-xs px-3 py-1.5 rounded-xl shadow transition';
+                renderSymbols(b.dataset.sym);
+            });
+        });
+
+        // ==============================================
+        // 4. USERNAME MAKER & ZALGO GLITCH ENGINE
+        // ==============================================
+        const inputHandleBase = document.getElementById('inputHandleBase');
+        const handleResultsList = document.getElementById('handleResultsList');
+
+        function generateUsernames() {
+            const raw = inputHandleBase.value.trim().toLowerCase() || 'aura';
+            const templates = [
+                `x.${raw}_vibes.x`,
+                `its.${raw}.exe`,
+                `the.${raw}.aesthetic`,
+                `callme.${raw}`,
+                `official.${raw}.vip`,
+                `iam.${raw}_`,
+                `pure.${raw}.xo`,
+                `vintage.${raw}`,
+                `cyber.${raw}`,
+                `silent.${raw}.exe`,
+                `★彡[ ${raw.toUpperCase()} ]彡★`,
+                `⚡_${raw}_⚡`
+            ];
+
+            handleResultsList.innerHTML = '';
+            templates.forEach(h => {
+                const row = document.createElement('div');
+                row.className = 'flex justify-between items-center bg-slate-950 border border-slate-800 p-2.5 rounded-xl text-xs shadow';
+                row.innerHTML = `
+                    <span class="font-bold text-pink-300 font-mono">${h}</span>
+                    <button class="bg-slate-900 hover:bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-800 text-[10px] font-bold">Copy</button>
+                `;
+                row.querySelector('button').addEventListener('click', () => copyText(h));
+                handleResultsList.appendChild(row);
+            });
+        }
+        document.getElementById('btnGenerateHandles').addEventListener('click', generateUsernames);
+        generateUsernames();
+
+        // Zalgo Glitch Engine
+        const zalgoSlider = document.getElementById('zalgoSlider');
+        const zalgoLevelLabel = document.getElementById('zalgoLevelLabel');
+        const zalgoPreviewText = document.getElementById('zalgoPreviewText');
+        const zalgoUp = ['\u030d', '\u030e', '\u0304', '\u0305', '\u033f', '\u0311', '\u0306', '\u0310', '\u0352', '\u0357'];
+        const zalgoDown = ['\u0316', '\u0317', '\u0318', '\u0319', '\u031c', '\u031d', '\u031e', '\u031f', '\u0320', '\u0324'];
+
+        function makeZalgo(text, level) {
+            let res = '';
+            for (let i = 0; i < text.length; i++) {
+                res += text[i];
+                if (text[i] !== ' ') {
+                    const count = level * 2;
+                    for (let j = 0; j < count; j++) {
+                        res += zalgoUp[Math.floor(Math.random() * zalgoUp.length)];
+                        res += zalgoDown[Math.floor(Math.random() * zalgoDown.length)];
+                    }
+                }
+            }
+            return res;
+        }
+
+        function updateZalgo() {
+            const raw = mainTextInput.value.trim() || 'Aura Glitch';
+            const level = parseInt(zalgoSlider.value, 10);
+            const labels = ['Mild (Level 1)', 'Intense (Level 2)', 'Insane (Level 3)', 'Corrupted (Level 4)', 'Soul Eater (Level 5)'];
+            zalgoLevelLabel.innerText = labels[level - 1] || 'Glitch';
+            zalgoPreviewText.innerText = makeZalgo(raw, level);
+        }
+
+        zalgoSlider.addEventListener('input', updateZalgo);
+        document.getElementById('btnCopyZalgo').addEventListener('click', () => copyText(zalgoPreviewText.innerText));
+
+        // Initialize on Load
+        window.onload = () => {
+            renderFonts();
+            updateZalgo();
+        };
+    </script>
+</body>
+</html>
+```
